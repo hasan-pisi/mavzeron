@@ -1,59 +1,299 @@
-/* --- MAVZERON: TRANSPARENT CHROME (FLOATING PANE) --- */
+/* --- MAVZERON: LIQUID MERCURY & CHROME FULL ECOSYSTEM --- */
 
-/* 1. ANA DUVARI VE SİYAH ARKA PLANI TAMAMEN SİL */
-body, .app-body, .ui, .auth-layout, .admin-wrapper, .settings-wrapper {
-    background: transparent !important; /* Tarayıcının varsayılan arka planı görünür */
-    background-image: none !important;
-    background-attachment: scroll !important;
+:root {
+    --chrome-bright: #ffffff;
+    --chrome-silver: #c0c0c0;
+    --chrome-dark: #1a1c1e;
+    --metal-border: rgba(255, 255, 255, 0.12);
+    --mercury-glow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
-/* 2. PANELLERİ (SÜTUNLARI) YÜZEN CAM VE METAL HALE GETİR */
+/* 1. ANA YAPI: FIRÇALANMIŞ ÇELİK ATMOSFER */
+body, .app-body, .ui, .admin-wrapper, .settings-wrapper, .auth-layout {
+    background: radial-gradient(circle at 50% 0%, #1e2124 0%, #050607 100%) !important;
+    background-attachment: fixed !important;
+    color: #d1d1d1 !important;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+/* 2. MAVZERON LOGO: PARLATILMIŞ KROM (REFLEKSİYONLU) */
+@keyframes chromeReflect {
+    0% { background-position: -200% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+.drawer__inner__mastodon svg, .navigation-panel__logo svg, .column-header__logo {
+    display: none !important;
+}
+
+.drawer__inner__mastodon::before, .navigation-panel__logo::before {
+    content: "YOUR SERVER NAME";
+    display: flex; justify-content: center; align-items: center;
+    height: 70px; font-weight: 900; font-size: 26px; letter-spacing: 6px;
+    background: linear-gradient(90deg, #555 0%, #fff 45%, #fff 55%, #555 100%);
+    background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    animation: chromeReflect 4s linear infinite;
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
+    visibility: visible !important;
+}
+
+/* 3. PANELLER VE ADMIN İÇERİĞİ (PLATINUM GLASS) */
 .column, .drawer, .hero-widget, .box,
 .admin-wrapper .sidebar, .settings-wrapper .sidebar,
 .admin-wrapper .content, .settings-wrapper .content,
 .dashboard__counters > div, .simple_form, .table-wrapper {
-    /* Daha belirgin buzlu cam efekti */
-    background: rgba(10, 12, 15, 0.8) !important;
-    backdrop-filter: blur(25px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
-    
-    /* Gümüş sınırları ve gölgeyi koru/güçlendir */
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    background: rgba(20, 22, 25, 0.9) !important;
+    backdrop-filter: blur(25px) !important;
+    border: 1px solid var(--metal-border) !important;
     border-radius: 12px !important;
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6) !important;
-    
-    /* Panelleri "yüzer" göstermek için hafif kenar boşlukları */
-    margin: 15px 8px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7) !important;
+    margin: 8px 4px !important;
 }
 
-/* 3. ZAMAN TÜNELİ VE İÇERİK: ŞEFFAFLIK VE OKUNABİLİRLİK */
+/* 4. ADMIN PANELİ ÖZEL DOKUNUŞLAR */
+.admin-wrapper .content .table th {
+    background: linear-gradient(to bottom, #444, #111) !important;
+    color: #fff !important;
+    border-bottom: 2px solid #fff !important;
+    text-transform: uppercase;
+    padding: 15px !important;
+}
+
+.admin-wrapper .content .table td {
+    border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+    color: #ccc !important;
+}
+
+.admin-wrapper .sidebar ul li a.selected {
+    background: linear-gradient(90deg, rgba(255,255,255,0.1), transparent) !important;
+    color: #fff !important;
+    border-left: 4px solid #fff !important;
+}
+
+/* 5. AÇILIR MENÜLER, EMOJİLER VE MODALLAR (CHROME DROPDOWN) */
+.dropdown-menu, .popover__menu, .emoji-picker__dropdown, .modal-root__container, .actions-modal {
+    background: rgba(15, 17, 20, 0.98) !important;
+    border: 1px solid #666 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 0 30px rgba(0,0,0,0.9) !important;
+}
+
+.dropdown-menu__item a:hover, .dropdown-menu__item button:hover {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+/* 6. BUTONLAR: SIVI METAL (LIQUID MERCURY) */
+.button, .navigation-bar__profile-edit, .compose-form__publish-button-wrapper button {
+    background: linear-gradient(180deg, #ffffff 0%, #888888 100%) !important;
+    color: #000 !important;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    border-radius: 6px !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1) !important;
+    border: none !important;
+}
+
+.button:hover {
+    background: #fff !important;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-1px);
+}
+
+/* 7. ETKİLEŞİM VE BİLDİRİMLER */
 .status, .notification {
     background: transparent !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
 }
 
 .status:hover, .notification:hover {
-    background: rgba(255, 255, 255, 0.03) !important;
+    background: rgba(255, 255, 255, 0.02) !important;
 }
 
-/* 4. SEKMELER (TABS) VE BAŞLIKLAR: ŞEFFAFLIĞA UYUM */
-.tabs-bar, .column-header__buttons, .notification__filter-bar {
-    background: rgba(30, 30, 30, 0.7) !important;
-    backdrop-filter: blur(10px) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+.status__action-bar__button.star-icon.active i {
+    color: #fff !important;
+    filter: drop-shadow(0 0 8px #fff);
 }
 
-/* 5. AÇILIR MENÜLER VE MODALLAR (TAM OPAK KALSIN) */
-.dropdown-menu, .popover__menu, .emoji-picker__dropdown, .modal-root__container {
-    background: rgba(15, 17, 20, 0.98) !important; /* Arka plan saydam olsa da menüler opak kalsın */
-    border: 1px solid #666 !important;
+/* 8. YAZI ALANI VE GİRDİLER (INDUSTRIAL STEEL) */
+.compose-form__highlightable, input[type="text"], textarea, select {
+    background: rgba(0, 0, 0, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+    border-radius: 8px !important;
 }
 
-/* 6. ADMIN PANELİ (SIDEBAR VE İÇERİK UYUMU) */
-.admin-wrapper .sidebar ul li a, .settings-wrapper .sidebar ul li a {
-    color: #bbb !important;
+input:focus, textarea:focus {
+    border-color: #fff !important;
 }
 
-.admin-wrapper .sidebar ul li a:hover, .settings-wrapper .sidebar ul li a:hover {
+/* 9. SEKMELER (TABS) */
+.tabs-bar__link.active, .column-link.active {
+    color: #fff !important;
+    border-bottom: 3px solid #fff !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 10. SCROLLBAR (CHROME RAIL) */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #444, #fff, #444) !important;
+    border-radius: 10px !important;
+}
+
+
+
+
+
+
+
+/* --- MAVZERON: CHROME TABS REVOLUTION --- */
+
+/* 1. SEKMELERİN ARKA PLANI (ANA ŞERİT) */
+.tabs-bar, .column-header__buttons, .account__section-headline, .notification__filter-bar {
+    background: linear-gradient(to bottom, #2a2a2a 0%, #111 100%) !important;
+    border-bottom: 1px solid var(--metal-border) !important;
+    padding: 0 !important;
+}
+
+/* 2. AKTİF OLMAYAN SEKMELER */
+.tabs-bar__link, .column-link, .account__section-headline a, .notification__filter-bar button {
+    color: #888 !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px !important;
+    transition: all 0.3s ease !important;
+    border-bottom: 2px solid transparent !important;
+}
+
+/* 3. AKTİF (SEÇİLİ) SEKME - GÜMÜŞ PARLAMASI */
+.tabs-bar__link.active, 
+.column-link.active, 
+.account__section-headline a.active, 
+.notification__filter-bar button.active,
+.tabs-bar__link:active,
+.tabs-bar__link:focus {
+    color: #ffffff !important;
+    background: linear-gradient(to top, rgba(255,255,255,0.1) 0%, transparent 100%) !important;
+    border-bottom: 3px solid #ffffff !important;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8) !important;
+    filter: brightness(1.2) !important;
+}
+
+/* 4. SEKME ÜZERİNE GELİNCE (HOVER) */
+.tabs-bar__link:hover, .column-link:hover {
     background: rgba(255, 255, 255, 0.05) !important;
     color: #fff !important;
+    text-decoration: none !important;
 }
+
+/* 5. MOBİL VE DAR EKRANLARDAKİ ALT NAVİGASYON SEKMELERİ */
+.navigation-bar {
+    background: #111 !important;
+    border-top: 1px solid var(--metal-border) !important;
+}
+
+.navigation-bar__item.active i {
+    color: #fff !important;
+    filter: drop-shadow(0 0 5px #fff) !important;
+}
+
+/* 6. SÜTUN BAŞLIKLARINDAKİ BUTONLAR */
+.column-header__button.active {
+    color: #fff !important;
+    text-shadow: 0 0 10px #fff !important;
+}
+
+
+
+
+
+
+/* --- MAVZERON: CHROME TIMELINE EVOLUTION --- */
+
+/* 1. ZAMAN TÜNELİ ANA HATTI (DİKEY ŞERİT) */
+.item-list, .scrollable {
+    background: transparent !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.05) !important;
+    margin-left: 10px !important;
+}
+
+/* 2. GÖNDERİ KARTLARI (SILVER SLABS) */
+.status, .notification {
+    background: rgba(255, 255, 255, 0.01) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    padding: 20px 25px !important;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    position: relative;
+}
+
+/* Gönderi Üzerine Gelince: Metalik Parlama ve Kenar Çizgisi */
+.status:hover, .notification:hover {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%) !important;
+    box-shadow: inset 5px 0 0 #ffffff !important; /* Sol kenarda beyaz çelik hattı */
+    transform: translateX(5px); /* Hafifçe sağa kayma efekti */
+}
+
+/* 3. KULLANICI ADLARI VE METİN (PLATINUM TEXT) */
+.status__display-name strong, .display-name strong {
+    color: #ffffff !important;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2) !important;
+    font-weight: 800 !important;
+}
+
+.status__content, .notification__message {
+    color: #cccccc !important;
+    line-height: 1.6 !important;
+    font-size: 15px !important;
+}
+
+/* 4. MEDYA (FOTOĞRAF/VİDEO) ÇERÇEVELERİ */
+.media-gallery, .video-player, .status-card {
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 5. ETKİLEŞİM ÇUBUĞU (ACTION BAR) */
+.status__action-bar {
+    margin-top: 15px !important;
+    border-top: 1px dotted rgba(255, 255, 255, 0.1) !important;
+    padding-top: 10px !important;
+}
+
+/* İkonların üzerine gelince gümüşi büyüme */
+.status__action-bar__button {
+    filter: grayscale(1) brightness(0.8) !important;
+    transition: all 0.2s ease !important;
+}
+
+.status__action-bar__button:hover {
+    filter: grayscale(0) brightness(1.5) !important;
+    transform: scale(1.2) !important;
+    color: #fff !important;
+}
+
+/* 6. BİLDİRİM İKONLARI (SOL TARAF) */
+.notification__icon {
+    font-size: 20px !important;
+    color: #ffffff !important;
+    text-shadow: 0 0 10px #ffffff !important;
+}
+
+/* 7. YÜKLENİYOR VE SONU GELMEYEN AKIŞ */
+.regeneration-indicator, .load-more {
+    background: #111 !important;
+    color: #fff !important;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+
+
+
+
+
+
+
