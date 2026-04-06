@@ -1,0 +1,59 @@
+/* --- MAVZERON: TRANSPARENT CHROME (FLOATING PANE) --- */
+
+/* 1. ANA DUVARI VE SİYAH ARKA PLANI TAMAMEN SİL */
+body, .app-body, .ui, .auth-layout, .admin-wrapper, .settings-wrapper {
+    background: transparent !important; /* Tarayıcının varsayılan arka planı görünür */
+    background-image: none !important;
+    background-attachment: scroll !important;
+}
+
+/* 2. PANELLERİ (SÜTUNLARI) YÜZEN CAM VE METAL HALE GETİR */
+.column, .drawer, .hero-widget, .box,
+.admin-wrapper .sidebar, .settings-wrapper .sidebar,
+.admin-wrapper .content, .settings-wrapper .content,
+.dashboard__counters > div, .simple_form, .table-wrapper {
+    /* Daha belirgin buzlu cam efekti */
+    background: rgba(10, 12, 15, 0.8) !important;
+    backdrop-filter: blur(25px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
+    
+    /* Gümüş sınırları ve gölgeyi koru/güçlendir */
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6) !important;
+    
+    /* Panelleri "yüzer" göstermek için hafif kenar boşlukları */
+    margin: 15px 8px !important;
+}
+
+/* 3. ZAMAN TÜNELİ VE İÇERİK: ŞEFFAFLIK VE OKUNABİLİRLİK */
+.status, .notification {
+    background: transparent !important;
+}
+
+.status:hover, .notification:hover {
+    background: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* 4. SEKMELER (TABS) VE BAŞLIKLAR: ŞEFFAFLIĞA UYUM */
+.tabs-bar, .column-header__buttons, .notification__filter-bar {
+    background: rgba(30, 30, 30, 0.7) !important;
+    backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* 5. AÇILIR MENÜLER VE MODALLAR (TAM OPAK KALSIN) */
+.dropdown-menu, .popover__menu, .emoji-picker__dropdown, .modal-root__container {
+    background: rgba(15, 17, 20, 0.98) !important; /* Arka plan saydam olsa da menüler opak kalsın */
+    border: 1px solid #666 !important;
+}
+
+/* 6. ADMIN PANELİ (SIDEBAR VE İÇERİK UYUMU) */
+.admin-wrapper .sidebar ul li a, .settings-wrapper .sidebar ul li a {
+    color: #bbb !important;
+}
+
+.admin-wrapper .sidebar ul li a:hover, .settings-wrapper .sidebar ul li a:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: #fff !important;
+}
