@@ -27,7 +27,7 @@ body, .app-body, .ui, .admin-wrapper, .settings-wrapper, .auth-layout {
 }
 
 .drawer__inner__mastodon::before, .navigation-panel__logo::before {
-    content: "YOUR SERVER NAME";
+    content: "MAVZERON";
     display: flex; justify-content: center; align-items: center;
     height: 70px; font-weight: 900; font-size: 26px; letter-spacing: 6px;
     background: linear-gradient(90deg, #555 0%, #fff 45%, #fff 55%, #555 100%);
@@ -295,5 +295,141 @@ input:focus, textarea:focus {
 
 
 
+/* --- MAVZERON: ATOMIC SILVER INTERACTION (ULTIMATE OVERRIDE) --- */
+
+/* 1. TÜM ETKİLEŞİM BUTONLARINI VE İÇİNDEKİLERİ MAT ÇELİĞE ZORLA */
+.status__action-bar__button, 
+.status__action-bar__button i, 
+.status__action-bar__button svg,
+.status__action-bar__button polygon,
+.status__action-bar__button path {
+    color: #555 !important; 
+    fill: #555 !important; /* SVG ikonlar için dolgu rengi */
+    background: transparent !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    border-color: transparent !important;
+    filter: none !important;
+}
+
+/* 2. ÜZERİNE GELİNDİĞİNDE (HOVER: GÜMÜŞ PARILTI EFEKTİ) */
+.status__action-bar__button:hover,
+.status__action-bar__button:hover i,
+.status__action-bar__button:hover svg,
+.status__action-bar__button:hover path {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9)) !important;
+    transform: translateY(-2px) scale(1.1) !important;
+}
+
+/* 3. AKTİF DURUMLAR (TIKLANINCA GÜMÜŞE BÜRÜNME) */
+/* Beğenme (Favorite), Yükseltme (Boost), Yanıtlama (Reply) ve Alıntılama */
+
+.status__action-bar__button.active,
+.status__action-bar__button.active i,
+.status__action-bar__button.active svg,
+.status__action-bar__button.active path,
+.status__action-bar__button.star-icon.active i,
+.status__action-bar__button.reblog-icon.active i,
+.status__action-bar__button[aria-pressed="true"] i,
+.status__action-bar__button[aria-pressed="true"] svg {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+    background: transparent !important;
+    /* Gümüş parlaması kilitlenir */
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 1)) brightness(1.5) !important;
+}
+
+/* 4. MASTODON'UN RENKLİ DAİRELERİNİ VE GÖLGELERİNİ SİL */
+.status__action-bar__button::before,
+.status__action-bar__button::after,
+.status__action-bar__button .icon-button__matrix {
+    display: none !important;
+    background: transparent !important;
+    opacity: 0 !important;
+}
+
+/* 5. ETKİLEŞİM SAYILARI (GÜMÜŞ RAKAMLAR) */
+.status__action-bar__counter,
+.status__action-bar__counter span,
+.status__action-bar__counter__label {
+    color: #888 !important;
+    font-weight: 800 !important;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.status__action-bar__button.active + .status__action-bar__counter span {
+    color: #ffffff !important;
+    text-shadow: 0 0 8px #fff !important;
+}
+
+/* 6. EKSTRA: ALINTI VE DİĞER BUTONLARIN ÖZEL DURUMLARI */
+.status__action-bar__button.icon-button i.fa-quote-left,
+.status__action-bar__button.icon-button i.fa-reply {
+    color: inherit !important;
+}
 
 
+
+
+
+
+
+/* --- MAVZERON: HEADER & FILTER BOX REVOLUTION --- */
+
+/* 1. ÜST BAŞLIK ALANI (ANASAYFA YAZAN KISIM) */
+.column-header, .column-header__button {
+    background: linear-gradient(to bottom, #2a2a2a 0%, #0a0a0a 100%) !important;
+    border-bottom: 2px solid var(--metal-border) !important;
+    color: #ffffff !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    backdrop-filter: blur(15px) !important;
+}
+
+/* 2. FİLTRE KUTUCUKLARI (YENİDEN PAYLAŞIMLAR, ALINTILAR VB.) */
+.column-settings__section, .column-header__collapsible-inner {
+    background: rgba(20, 22, 25, 0.9) !important;
+    border: 1px solid var(--metal-border) !important;
+    border-radius: 8px !important;
+    margin: 10px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 3. SWITCH/ANAHTAR DÜĞMELERİNİ GÜMÜŞ YAP (MORU SİL) */
+.react-toggle--checked .react-toggle-track {
+    background: linear-gradient(90deg, #555, #fff) !important; /* Mor yerine gümüş */
+}
+
+.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
+    background: #fff !important;
+}
+
+.react-toggle-thumb {
+    border: 1px solid #444 !important;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 4. METİN ETİKETLERİ */
+.column-settings__section {
+    color: #ccc !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 13px !important;
+}
+
+/* 5. DAHA FAZLASI / YÜKLEME ALANI (GÖRSELDEKİ ALT KISIM) */
+.load-more, .regeneration-indicator {
+    background: linear-gradient(180deg, #222 0%, #000 100%) !important;
+    border: 1px solid var(--metal-border) !important;
+    color: #fff !important;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin: 10px !important;
+    border-radius: 6px !important;
+}
+
+.load-more:hover {
+    background: #111 !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1) !important;
+}
